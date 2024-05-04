@@ -21,7 +21,7 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 15vh;   
+    height: 8vh;   
 }
 /* stylisage des images*/
 .right{
@@ -32,8 +32,15 @@ header{
     align-items: center;
     gap: .5rem;
 }
+.right button{
+    background-color: rgb(82, 82, 220);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 .pp{
-    width: 25%;
+    width: 16%;
     height: 5vh;
     border-radius: 50%;
 }
@@ -51,7 +58,7 @@ header{
 }
 /*barre de recherche*/
 .search{
-    height: 25%;
+    height: 50%;
     width: 45%;
     display: flex;
     flex-direction: row;
@@ -93,7 +100,7 @@ header{
 }
 /*deuxieme partie du header*/
 .buttom{
-    height: 15vh;
+    height: 10vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -131,12 +138,14 @@ header{
     align-items: center;
     list-style: none;
     gap: 1em;
-    width: 40%;
+    width: 90%;
     height: 50%;
+    overflow-x: hidden;
 }
 
 #nav-links > li{
     height: 100%;
+    width: max-content;
 }
 
 #nav-links > li > a {
@@ -146,6 +155,12 @@ header{
     position: relative;
 	top: 50%;
     translate: 0 -50%;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
 
 #nav-links > li > a:hover{

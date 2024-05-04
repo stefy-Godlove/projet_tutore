@@ -5,6 +5,7 @@
 
 
 <body>
+    <?php include("header.php"); ?>
     <!--first part of the body-->
     <div class="head-body">
         <!--chevron-left-->

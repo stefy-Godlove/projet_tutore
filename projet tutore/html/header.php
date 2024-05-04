@@ -16,10 +16,16 @@
            </button>
         </div>
         <div class="right">
-            <div class="pp">
-                <img src="../assets/pp1.jpg" alt="">
-            </div>
-            <p>User Name</p>
+        <?php 
+            if(isset($_SESSION['userId'])){?>            
+                <div class="pp">
+                    <img src="../assets/pp1.jpg" alt="">
+                </div>
+                <p>User Name</p>
+            <?php }else{?>
+                <button type="button">Sign Up</button>
+            <?php }
+        ?>
         </div>
     </div>
 
