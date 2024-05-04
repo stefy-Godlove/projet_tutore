@@ -20,7 +20,13 @@
         </div>
         <div class="image-card">
             <div class="image">
-                <img src="../assets/IMG-20240424-WA0007.jpg" alt="">
+                <div>
+                    <img src="../assets/frigo.png" alt="">
+                <div></div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="../assets/mixeur.png" alt="">
             </div>
         </div>
     </div>

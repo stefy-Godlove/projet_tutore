@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -7,24 +7,27 @@
 a {
     text-decoration: none;
     color: inherit;
-   
+
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     width: 100%;
     margin: 10px;
-    padding:10px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.head-body{
+.head-body {
     width: 100%;
     height: 50vh;
     background: linear-gradient(to left, rgb(96, 40, 163), rgb(151, 110, 219));
@@ -37,14 +40,14 @@ body{
 
 /*stylisage du chevron*/
 
-.chevron-left{
+.chevron-left {
     display: inline-block;
     position: relative;
-	/* top: 50%; */
+    /* top: 50%; */
     translate: 0 -50;
 }
 
-.chevron-left > button{
+.chevron-left>button {
     background-color: rgb(151, 110, 219);
     background-image: rgb(255, 255, 255);
     color: black;
@@ -56,38 +59,58 @@ body{
     font-weight: bolder;
 }
 
-.chevron-left > button:hover{
+.chevron-left>button:hover {
     /* color: rgb(94, 12, 121);
     background-color:rgb(180, 118, 211) ; */
     z-index: 100px;
-    box-shadow: 2px 2px 2px  rgb(27, 66, 155), -2px -2px 2px  rgb(27, 66, 155);
+    box-shadow: 2px 2px 2px rgb(27, 66, 155), -2px -2px 2px rgb(27, 66, 155);
 }
 
-.texte{
+.texte {
     width: 10%;
     margin-left: 50px;
 }
 
-.texte > h2{
+.texte>h2 {
     font-weight: bold;
     font-size: 25px;
 }
 
-.image-card{
+.image-card {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
 
-.image{
+.image {
     width: 25%;
     height: 100%;
 }
 
-.image > img{
+.image  img {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    background-color:  rgb(151, 110, 219);
+    /* background-color:  rgb(151, 110, 219); */
+    filter: blur(0px) brightness(1);
+    transition: filter 0.5s ease;
 }
+.image div > div{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+}
+
+/* img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none;
+  } */
+  
