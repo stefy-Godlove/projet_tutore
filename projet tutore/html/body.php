@@ -59,3 +59,7 @@
         </table>
     </section>
 </body>
+
+<script src="../js/color-thief/dist/color-thief.min.js"></script>
+<script src="../js/script.js"></script>
+</html>

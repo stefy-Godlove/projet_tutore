@@ -21,7 +21,6 @@
         .conteneur-slides {
             display: flex;
             flex-direction: row;
-            margin-left: 7%;
             /* Permet de disposer les slides en ligne */
             
             /* Cache les slides qui dépassent du conteneur */
@@ -114,20 +113,6 @@
                 }
             }
         ?>
-            
-            <div class="slide">
-                <p>Appareil Electro-Menager</p>
-                <img src="../assets/Offre Amazon_ Brand sélection de Cecotec.jpeg" alt="Image 2">
-                <!-- <p>Titre de l'image 2</p>
-                <p>Description de l'image 2</p> -->
-            </div>
-            <div class="slide">
-                <p>Appareil Electro-Menager</p>
-                <img src="../assets/frigo.png" alt="Image 3">
-                <img src="../assets/frigo.png" alt="Image 3">
-                <!-- <p>Titre de l'image 3</p>
-                <p>Description de l'image 3</p> -->
-            </div>
         </div>
         <div class="chevron-left btn-prev">
             <button id="chevron-left" >
@@ -139,8 +124,6 @@
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
-        <!-- <button class="btn-prev">Précédent</button> -->
-        <!-- <button class="btn-next">Suivant</button> -->
     </div>
 
     <script src="script.js"></script>
