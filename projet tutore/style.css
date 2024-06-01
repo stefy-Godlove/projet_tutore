@@ -1,0 +1,13 @@
+.image-container {
+    position: relative; /* Allow positioning of the color div */
+}
+
+.color-div {
+    position: absolute; /* Position the color div over the image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Initially transparent */
+    pointer-events: none; /* Prevent user interaction with the color div */
+}

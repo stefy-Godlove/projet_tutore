@@ -22,41 +22,41 @@ body {
     width: 100%;
     margin: 10px;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .head-body {
     width: 100%;
     height: 50vh;
     background: linear-gradient(to left, rgb(96, 40, 163), rgb(151, 110, 219));
-    z-index: 100px;
+    /* z-index: 100px; */
     margin-right: 10px;
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center; */
 }
 
 /*stylisage du chevron*/
 
 .chevron-left {
-    display: inline-block;
-    position: relative;
+    /* display: inline-block; */
+    /* position: relative; */
     /* top: 50%; */
     translate: 0 -50;
 }
 
 .chevron-left>button {
-    background-color: rgb(151, 110, 219);
-    background-image: rgb(255, 255, 255);
-    color: black;
+    background-color: transparent;
+    /* background-image: rgb(255, 255, 255); */
+    /* color: black; */
     border: none;
     font-size: 1.5em;
     height: 50%;
     width: 25%;
     padding: 0 1em;
     font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .chevron-left>button:hover {
@@ -96,21 +96,17 @@ body {
     filter: blur(0px) brightness(1);
     transition: filter 0.5s ease;
 }
-.image div > div{
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    position: absolute;
-}
 
-/* img::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+
+section {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-    pointer-events: none;
-  } */
-  
+}
+table{
+    width: 100%;
+}
+tr{
+    height: 7vh;
+}
+td, th{
+    text-align: center;
+}

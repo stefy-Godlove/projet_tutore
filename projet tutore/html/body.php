@@ -5,29 +5,57 @@
 
 
 <body>
-    <?php include("header.php"); ?>
+    <?php 
+        include("header.php");
+        include("../php/get_all_product.php"); 
+        $data = json_decode($json, true);
+    ?>
     <!--first part of the body-->
     <div class="head-body">
-        <!--chevron-left-->
-        <div class="chevron-left">
-            <button id="chevron-left">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-        </div>
-        <!--texte descriptif des images-->
-        <div class="texte">
-            <h2>APPAREIL ELECTROMENAGER CUISINE</h2>
-        </div>
-        <div class="image-card">
-            <div class="image">
-                <div>
-                    <img src="../assets/frigo.png" alt="">
-                <div></div>
-                </div>
-            </div>
-            <div class="image">
-                <img src="../assets/mixeur.png" alt="">
-            </div>
+        <div style="height: 100%;">
+            <?php include('carroussel.php'); ?>
         </div>
     </div>
+
+    <section>
+        <table border="5px">
+            <tr><th>Identifiant</th><th>Categorie</th><th>Libelle</th><th>prix</th><th>Description</th></tr>
+        <?php 
+            
+            for ($i=0; $i < count($data); $i++) { 
+                # code...
+                ?>
+                <tr>
+                    <td>
+                        <?php 
+                            echo $data[$i]['idProduit']; 
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            echo $data[$i]['nomCategories'];
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                          echo $data[$i]['libelle'];  
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            echo $data[$i]['prix'];
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                          echo $data[$i]['description'];  
+                        ?>
+                    </td>
+                </tr>
+                
+                <?php
+            }
+        ?>
+        </table>
+    </section>
 </body>
