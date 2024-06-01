@@ -34,7 +34,7 @@
     <div class="buttom">
         <div class="barre">
             <button id="menu-btn">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars" style="color: white"></i>
             </button>
         </div>
 
@@ -51,5 +51,5 @@
             <li><a href="">Promotion</a></li>
         </ul>
     </div>
-    <hr>
+    <!-- <hr> -->
 </header>

@@ -4,7 +4,7 @@
 </head>
 
 
-<body>
+<body style = "margin: 0;padding: 0;">
     <?php 
         include("header.php");
         include("../php/get_all_product.php"); 
