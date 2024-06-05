@@ -12,9 +12,9 @@
     ?>
     <!--first part of the body-->
     <div class="head-body">
-        <div style="height: 100%;">
+        <!-- <div style="height: 100%;"> -->
             <?php include('carroussel.php'); ?>
-        </div>
+        <!-- </div> -->
     </div>
 
     <section>

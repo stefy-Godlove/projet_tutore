@@ -23,7 +23,7 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 12vh;  
+    height: 13vh;  
     /* padding: 3% 0;  */
 }
 /* stylisage des images*/
@@ -62,14 +62,14 @@ header{
 
 .logo > img, .pp > img {
     object-fit: cover;
-    width: 90%;
-    height: 90%;
-    border-radius: 60%;
+    width: 100%;
+    height: 100%;
+    /* border-ra`dius: 60%; */
 }
 /*barre de recherche*/
 .search{
-    height: 50%;
-    width: 45%;
+    height: 40%;
+    width: 25%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -102,6 +102,7 @@ header{
     /* background-color: transparent; */
     border-radius: 0 5px 5px 0;
     border: none;
+    cursor: pointer;
 }
 
 .search > .search-btn:focus{
@@ -110,7 +111,7 @@ header{
 }
 /*deuxieme partie du header*/
 .buttom{
-    height: 10vh;
+    height: 7vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -120,14 +121,18 @@ header{
     box-shadow: 0 0 2px 0px rgb(0, 0, 0);
     background-color: rgb(28, 26, 26);
     overflow-x: auto;
+    padding: 0 1%;
 }
 /*barre du sidebar*/
+.barre{
+    height: 100%;
+}
 .barre > button {
     background-color: transparent;
-    background-image: rgb(255, 255, 255);
+    /* background-image: rgb(255, 255, 255); */
     border: none;
     font-size: 1.5em;
-    height: 50%;
+    height: 100%;
     width: 100%;
     padding: 0 1em;
     font-weight: bolder;
@@ -137,7 +142,7 @@ header{
     color: rgb(355, 12, 121);
     z-index: 100px;
     border: 1px solid rgb(255, 255, 255, 0.9);
-    height: 100%;
+    /* height: 100%; */
 }
 /*differentes rubriiques*/
 #nav-links{
@@ -172,8 +177,9 @@ header{
 }
 
 #nav-links > li > a:hover{
-    color: rgb(94, 12, 121);
-    background-color:rgb(180, 118, 211) ;
+    /* color: rgb(94, 12, 121); */
+    /* background-color:rgb(180, 118, 211) ; */
+    border: 1px solid rgb(255, 255, 255, 0.9);
     z-index: 100px;
     box-shadow: 2px 2px 2px  rgb(180, 118, 211);
 }

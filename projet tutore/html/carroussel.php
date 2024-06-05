@@ -37,6 +37,7 @@
             /* Centre le contenu des slides */
             display: flex;
             justify-content: center;
+            cursor: pointer;
         }
 
         .slide P{
@@ -51,7 +52,7 @@
         .slide img {
             width: 50%;
             /* Ajuste l'image à la largeur du slide */
-            height: 50vh;
+            height: 25vh;
             object-fit: contain;
             /* Conserve le ratio d'aspect de l'image */
         }
@@ -103,7 +104,7 @@
                     $image = mysqli_fetch_assoc($query);
 
                 ?>
-                    <div class="slide">
+                    <div class="slide" id="<?php echo $data[$i]['idProduit']; ?>">
                         <p><?php echo $data[$i]['nomCategories']; ?></p>
                         <img src="../<?php echo $image['imageUrl'] ?>" alt="Image 1">
                         <!-- <p>Titre de l'image 1</p>

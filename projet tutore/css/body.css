@@ -26,22 +26,14 @@ body {
 
 .head-body {
     width: 100%;
-    height: 50vh;
-    /* background: linear-gradient(to left, rgb(96, 40, 163), rgb(151, 110, 219)); */
+    height: 25vh;
     background-color: transparent;
-    /* z-index: 100px; */
     margin-right: 10px;
-    /* display: flex;
-    flex-direction: row;
-    align-items: center; */
 }
 
 /*stylisage du chevron*/
 
 .chevron-left {
-    /* display: inline-block; */
-    /* position: relative; */
-    /* top: 50%; */
     translate: 0 -50;
 }
 
