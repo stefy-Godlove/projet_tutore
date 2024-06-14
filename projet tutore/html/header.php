@@ -34,19 +34,18 @@
     <div class="buttom">
         <div class="barre">
             <button id="menu-btn">
-                <i class="fa-solid fa-bars" style="color: white"></i>
+                <i class="fa-solid fa-bars" ></i>
             </button>
         </div>
 
-        <!--different links-->
         <ul id="nav-links">
-            <li><a href="">Appareil Electromeneger</a></li>
+            <li><a href="presentation.php?idCath=1">Appareil Electromeneger</a></li>
             <li><a href="">Appareil Electronique</a></li>
-            <li><a href="">vetements</a></li>
+            <li><a href="presentation.php?idCath=2">vetements</a></li>
             <li><a href="">chaussures</a></li>
             <li><a href="">montres</a></li>
             <li><a href="">Cuisines</a></li>
-            <li><a href="">Sacs</a></li>
+            <li><a href="presentation.php?idCath=3">Sacs</a></li>
             <li><a href="">Bijoux</a></li>
             <li><a href="">Promotion</a></li>
         </ul>
