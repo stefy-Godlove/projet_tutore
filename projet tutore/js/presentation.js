@@ -44,7 +44,6 @@ function effectuerRequeteAjax(url, methode, donnees, callback) {
     loadingDiv.style.display = "flex";
   });
   window.addEventListener("load", function() {
-    alert("ok");
     const loadingDiv = document.querySelector(".screen-loader");
     loadingDiv.style.display = "none";
   });
