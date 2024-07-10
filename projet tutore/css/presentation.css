@@ -1,22 +1,30 @@
 @font-face {
-    font-family: 'roboto'; /* Nom de la police à utiliser dans votre CSS */
-    src: url('../webfonts/RobotoCondensed-Italic-VariableFont_wght.ttf'); /* Chemin d'accès au fichier de police */
+    font-family: 'roboto';
+    /* Nom de la police à utiliser dans votre CSS */
+    src: url('../webfonts/RobotoCondensed-Italic-VariableFont_wght.ttf');
+    /* Chemin d'accès au fichier de police */
     /*format('truetype'); /* Format de la police (ttf, otf, etc.) */
-    font-weight: normal; /* Style de police (normal, gras, italique, etc.) */
-  }
-  @font-face {
-    font-family: 'robotoSemiBold'; /* Nom de la police à utiliser dans votre CSS */
-    src: url('../webfonts/RobotoCondensed-SemiBold.ttf'); /* Chemin d'accès au fichier de police */
+    font-weight: normal;
+    /* Style de police (normal, gras, italique, etc.) */
+}
+
+@font-face {
+    font-family: 'robotoSemiBold';
+    /* Nom de la police à utiliser dans votre CSS */
+    src: url('../webfonts/RobotoCondensed-SemiBold.ttf');
+    /* Chemin d'accès au fichier de police */
     /*format('truetype'); /* Format de la police (ttf, otf, etc.) */
-    font-weight: normal; /* Style de police (normal, gras, italique, etc.) */
-  }
-  
+    font-weight: normal;
+    /* Style de police (normal, gras, italique, etc.) */
+}
+
 
 
 * {
     margin: 0;
     padding: 0;
 }
+
 section {
     width: 100%;
     display: flex;
@@ -45,9 +53,10 @@ section {
     font-size: 16px;
     flex-wrap: wrap;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.from-color-filter > ul {
+.from-color-filter>ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -66,6 +75,22 @@ section {
     flex-direction: column;
     font-size: 15px;
 }
+.voir-plus {
+    font-size: 12px;
+}
+.voirplus-mark{
+    font-size: 10px;
+}
+.voir-plus a:hover{
+    color: orangered !important;
+    text-decoration: underline;
+}
+
+.categories-cachees {
+    display: none;
+    /* Masquer le conteneur par défaut */
+}
+
 
 .fa-square {
     cursor: pointer;
@@ -80,24 +105,28 @@ section {
     flex-wrap: wrap;
     gap: 20px;
 }
+
 .card {
     width: 250px;
     height: 300px;
-    /* border: 1px solid rgb(113, 109, 109); */
+    border: 3px solid rgb(113, 109, 109);
 }
+
 .card-title {
     width: 100%;
     height: 200px;
     height: max-content;
-    
+
 }
+
 .card-title img {
     width: 100%;
     height: 170px;
     object-fit: cover;
     background-color: rgb(243, 242, 242);
 }
-.card-diff-color{
+
+.card-diff-color {
     display: flex;
     justify-content: center;
     height: 30px;
@@ -105,6 +134,7 @@ section {
     /* width: 50%; */
 
 }
+
 /* .isSelectedColor {
     border: 2px solid rgb(193, 131, 131);
     border-radius: 50%;
@@ -114,91 +144,17 @@ section {
     font-size: 15px;
     font-weight: bolder;
     text-transform: uppercase;
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    justify-content: space-around; */
 }
+
+.information span {
+    font-size: 12px;
+    color: tomato;
+    font-style: italic;
+    font-weight: bolder;
+}
+
 .description {
     font-family: 'roboto';
-}
-
-
-.screen-loader {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: rgba(128, 128, 128, .3); */
-    display: none;
-}
-
-.loader {
-    height: 6em;
-    width: 6em;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 5px 5px black;
-    background-color: rgb(225, 225, 225, .5);
-}
-.circle {
-    position: absolute;
-    height: 80%;
-    width: 80%;
-    border-radius: 50%;
-    border-style: solid;
-}
-.black {
-    border-width: 3px 3px 0 0;
-    border-color: black black transparent transparent;
-    animation: 1s rotate-black linear infinite;
-}
-.red {
-    border-width: 0 0 3px 3px;
-    border-color: transparent transparent red red ;
-    animation: 1s rotate-red linear infinite;
-}
-.orange {
-    border-width: 0 3px 3px 0;
-    border-color: transparent orange orange transparent ;
-    animation: 1s rotate-orange linear infinite;
-}
-.yellow {
-    border-width: 3px 0 0 3px;
-    border-color: yellow transparent transparent yellow ;
-    animation: 1s rotate-yellow linear infinite;
-}
-@keyframes rotate-black {
-    from {
-        transform: rotateX(45deg) rotateY(-35deg) rotateZ(0deg);
-    }
-    to {
-        transform: rotateX(45deg) rotateY(-35deg) rotateZ(360deg);
-    }
-}
-@keyframes rotate-red {
-    from {
-        transform: rotateX(45deg) rotateY(35deg) rotateZ(0deg);
-    }
-    to {
-        transform: rotateX(45deg) rotateY(35deg) rotateZ(360deg);
-    }
-}
-@keyframes rotate-orange {
-    from {
-        transform: rotateX(70deg) rotateZ(0deg);
-    }
-    to {
-        transform: rotateX(70deg) rotateZ(360deg);
-    }
-}
-@keyframes rotate-yellow {
-    from {
-        transform: rotateY(70deg) rotateZ(0deg);
-    }
-    to {
-        transform: rotateY(70deg) rotateZ(360deg);
-    }
 }
