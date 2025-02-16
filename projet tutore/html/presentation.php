@@ -1,5 +1,9 @@
 <?php
 include ("../config/config.php");
+// if (!isset($_GET["idCath"])) {
+//     header("body.php");
+// }
+$idCath = $_GET["idCath"];
 ?>
 
 <!DOCTYPE html>
@@ -16,19 +20,45 @@ include ("../config/config.php");
     <?php include ("header.php"); ?>
     <section>
         <div class="filter-elt">
-        <div class="elt-filt from-categorie-filter">
+            <div class="elt-filt from-categorie-filter">
                 <div class="elt-filt-title">
-                    Categorie (<a href="" style="font-size: small; text-decoration: underline;color: blue;">All</a>)
+                    Categorie <a href="presentation.php?idCath=0"
+                        style="font-size: small; text-decoration: underline;color: blue;">( All )</a>
                 </div>
                 <ul>
-                    <li>Sac</li>
-                    <li>Vetement</li>
-                    <li>Appareil Electro-Menager</li>
+                    <?php
+                    $query = mysqli_query($conn, "SELECT * FROM categories");
+                    $count = 0;
+                    $numberMax = 3;
+                    while ($row = mysqli_fetch_assoc($query)) {
+                        if ($count < $numberMax) {
+                            ?>
+                            <li><input type="radio" name="filterCategorie"
+                                    id="<?php echo $row['idCath']; ?>"> <?php echo $row["nomCategories"]; ?></li>
+                            <?php
+                        } else if ($count == $numberMax + 1) {
+                            ?>
+                                <div class="categories-cachees">
+                                    <li><input type="radio" name="filterCategorie"
+                                            id="<?php echo $row['idCath']; ?>"><?php echo $row["nomCategories"]; ?></li>
+                            <?php } else { ?>
+
+                                    <li><input type="radio" name="filterCategorie"
+                                            id="<?php echo $row['idCath']; ?>"><?php echo $row["nomCategories"]; ?></li>
+                                <?php
+                        }
+                        $count++;
+                    }
+                    if ($count > $numberMax) {
+                        echo "</div><li class=\"voir-plus\"><i class=\"fa-solid fa-chevron-down voirplus-mark\"></i><a href=\"#\" style = 'color: blue; '>Voir plus</a></li>";
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="elt-filt from-color-filter">
                 <div class="elt-filt-title">
-                    Couleur (<a href="" style="font-size: small; text-decoration: underline;color: blue;">All</a>)
+                    Couleur:
+                    <!-- <a href="presentation.php?idCath=0" style="font-size: small; text-decoration: underline;color: blue;">( All )</a> -->
                 </div>
                 <ul>
                     <li><i class="fas fa-square" style="color: red;"></i></li>
@@ -43,10 +73,46 @@ include ("../config/config.php");
                     <li><i class="fas fa-square" style="color: purple;"></i></li>
                 </ul>
             </div>
+            <div class="elt-filt from-categorie-filter">
+                <div class="elt-filt-title">
+                    Marque
+                </div>
+                <ul>
+                    <?php
+                    $query = mysqli_query($conn, "SELECT marque FROM produit WHERE marque <> \"\" GROUP BY marque");
+                    $count = 0;
+                    while ($row = mysqli_fetch_assoc($query)) {
+                        if ($count < $numberMax) {
+                            ?>
+                            <li><input type="checkbox" name="filterCategorie"
+                                    id="<?php echo $row['marque']; ?>"> <?php echo $row["marque"]; ?></li>
+                            <?php
+                        } else if ($count == $numberMax + 1) {
+                            ?>
+                                <div class="categories-cachees">
+                                    <li><input type="radio" name="filterCategorie"
+                                            id="<?php echo $row['marque']; ?>"><?php echo $row["marque"]; ?></li>
+                            <?php } else { ?>
+
+                                    <li><input type="radio" name="filterCategorie"
+                                            id="<?php echo $row['marque']; ?>"><?php echo $row["marque"]; ?></li>
+                                <?php
+                        }
+                        $count++;
+                    }
+                    if ($count > $numberMax) {
+                        echo "</div><li class=\"voir-plus\"><i class=\"fa-solid fa-chevron-down voirplus-mark\"></i><a href=\"#\" style = 'color: blue; '>Voir plus</a></li>";
+                    }
+                    ?>
+                </ul>
+            </div>
         </div>
         <div class="contain-show-product">
             <?php
-            $query = mysqli_query($conn, "SELECT categories.nomCategories, produit.idProduit, produit.libelle, produit.prix, produit.description FROM produit INNER JOIN categories ON produit.categorieId = categories.idCath ");
+            $query = mysqli_query($conn, "SELECT categories.nomCategories, produit.idProduit, produit.libelle, produit.prix, produit.description FROM produit INNER JOIN categories ON produit.categorieId = categories.idCath AND categories.idCath = " . $idCath);
+            if ($idCath == 0) {
+                $query = mysqli_query($conn, "SELECT categories.nomCategories, produit.idProduit, produit.libelle, produit.prix, produit.description FROM produit INNER JOIN categories ON produit.categorieId = categories.idCath ");
+            }
             while ($row = mysqli_fetch_row($query)) {
                 $result[] = $row;
                 $images = mysqli_query($conn, "SELECT imageUrl, color FROM imageproduit WHERE idProd = " . $row[1]);
@@ -57,52 +123,63 @@ include ("../config/config.php");
                         <img src="../<?php echo $image["imageUrl"]; ?>" alt="">
 
                         <div class="card-diff-color">
-                        <?php
-                    if (mysqli_num_rows($images) > 1) {
-                        ?>
-                        
-                            <i class="fas fa-circle isSelectedColor" style="color: <?php echo $image['color']; ?>;border : 1px solid black; border-radius: 50%; height: max-content;"></i>
                             <?php
-                            while ($colorImages = mysqli_fetch_assoc($images)) {
+                            if (mysqli_num_rows($images) > 1) {
                                 ?>
-                                <i class="fas fa-circle" style="color: <?php echo $colorImages['color']; ?>; border : 1px solid black,; border-radius: 50px;height: max-content;"></i>
-                            <?php } ?>
-                       
-                        <?php
-                    }
-                    ?>
-                     </div>
-                </div>
-                <div class="information">
-                <p>
-                    <?php echo $row[2] ?>
-                </p>
-                <span>
-                    <?php echo $row[3] ?>
-                </span>
-                <div class="description">
-                    <?php echo $row[4]; ?>
-                </div>
-                </div>
+
+                                <i class="fas fa-circle isSelectedColor"
+                                    style="color: <?php echo $image['color']; ?>;border : 1px solid black; border-radius: 50%; height: max-content;"></i>
+                                <?php
+                                $i = 0;
+                                $nombreMax = 2;
+                                while ($colorImages = mysqli_fetch_assoc($images)) {
+                                    if ($i < $nombreMax) {
+                                        ?>
+                                        <i class="fas fa-circle"
+                                            style="color: <?php echo $colorImages['color']; ?>; border : 1px solid black,; border-radius: 50px;height: max-content;"></i>
+                                        <?php
+                                    }
+                                    $i++;
+                                }
+                                if ($i - $nombreMax > 0) {
+                                    echo "<a href='' style='color: blue;text-decoration: underline;'>+" . ($i - $nombreMax) . "</a>";
+                                }
+                                ?>
+
+                                <?php
+                            }
+                            ?>
+                        </div>
                     </div>
+                    <div class="information">
+                        <p>
+                            <?php echo $row[2] ?>
+                        </p>
+                        <div class="description">
+                            <?php
+                            $suffixe = '...';
+                            $texte = $row[4];
+                            $longueurMax = 50;
+                            if (strlen($texte) > $longueurMax) {
+                                $texte = substr($texte, 0, $longueurMax - strlen($suffixe)) . $suffixe;
+                            }
+                            echo $texte;
+                            ?>
+                        </div>
+                        <span>
+                            <?php echo $row[3] ?> xaf
+                        </span>
+                    </div>
+                </div>
                 <?php
-            }            
+            }
             ?>
         </div>
         <br>
     </section>
-    <div class="screen-loader">
-        <div class="loader">
-            <div class="circle black"></div>
-            <div class="circle red"></div>
-            <div class="circle orange"></div>
-            <div class="circle yellow"></div>
-        </div>
-    </div>
+    <?php include ("loaded.php") ?>
     <script src="../js/jquery.js"></script>
     <script src="../js/presentation.js"></script>
 </body>
 
 </html>
-
-<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sunt adipisci excepturi deserunt, pariatur maxime reprehenderit, veritatis eos est obcaecati minus mollitia! Excepturi unde sunt saepe praesentium animi nobis omnis. -->
